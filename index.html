@@ -1,5 +1,30 @@
 ---
 layout: compress
+items:
+  - name: codepen
+    type: social
+    caption: my friday nights
+    link: "http://codepen.io/ionrocks/"
+  - name: github
+    type: social
+    caption: projects for a good home
+    link: "https://github.com/ionrocks"
+  - name: gist
+    type: social
+    caption: handy snippets that i want to remember
+    link: "https://gist.github.com/ionrocks"
+  - name: reddit
+    type: social
+    caption: occasionally i can even be helpful
+    link: "http://www.reddit.com/user/ionrocks"
+  - name: opin.ion.rocks
+    type: project
+    caption: a blog i should write more often
+    link: "http://opin.ion.rocks/"
+  - name: procrastinat.ion.rocks
+    type: project
+    caption: an infinitely scrolling reddit browser
+    link: "http://procrastinat.ion.rocks/"
 ---
 
 <!DOCTYPE html>
@@ -14,29 +39,11 @@ layout: compress
   </style>
 </head>
 <body>
-  <a target="_blank" href="http://codepen.io/ionrocks/" class="purple">
-    <strong>codepen</strong>
-    <p>my friday nights</p>
-  </a>
-  <a target="_blank" href="https://github.com/ionrocks" class="purple">
-    <strong>github</strong>
-    <p>some projects that need a home and some love</p>
-  </a>
-  <a target="_blank" href="https://gist.github.com/ionrocks" class="purple">
-    <strong>gist</strong>
-    <p>handy snippets that i want to remember</p>
-  </a>
-  <a target="_blank" href="http://www.reddit.com/user/ionrocks" class="purple">
-    <strong>reddit</strong>
-    <p>occasionally i can even be helpful</p>
-  </a>
-  <a target="_blank" href="http://opin.ion.rocks/" class="blue">
-    <strong>opin.ion.rocks</strong>
-    <p>a blog about code and life</p>
-  </a>
-  <a target="_blank" href="http://procrastinat.ion.rocks/" class="blue">
-    <strong>procrastinat.ion.rocks</strong>
-    <p>an infinitely scrolling reddit browser</p>
-  </a>
+  {% for item in page.items %}
+    <a target="_blank" href="{{ item.link }}" class="{% if item.type == "social" %}purple{% else %}blue{% endif %}">
+      <strong>{{ item.name }}</strong>
+      <p>{{ item.caption }}</p>
+    </a>
+  {% endfor %}
 </body>
 </html>
